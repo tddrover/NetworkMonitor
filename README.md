@@ -20,6 +20,9 @@ How to Run the App:
 - Load the module into the kernel with "sudo insmod NetworkMonitor.ko"
 - Once the module is loaded, it will start monitoring network activity. You can view the recorded IP addresses and their occurrence counts by checking the system logs or using tools like running "sudo dmesg"
 
+Unload the Kernel Module
+-Use "sudo rmmod NetworkMonitor" to remove the NetworkMonitor module from the kernel
+
 
 Important Notes
 - This module is designed for use on Linux systems.
