@@ -40,8 +40,8 @@ ssize_t read_simple(struct file *filp,char *buf,size_t count,loff_t *offp )
 	return sofar;
 }
 
-struct file_operations proc_fops = {
-	read: read_simple,
+const struct proc_ops proc_fops = {
+	.proc_read = read_simple, 
 };
 
 unsigned int hook_function(void *priv, struct sk_buff *skb, const struct nf_hook_state *state){
@@ -54,7 +54,7 @@ unsigned int hook_function(void *priv, struct sk_buff *skb, const struct nf_hook
 			this->ip_count++;
 			printk("Added to %pI4:%u\n", this->ip, this->ip_count);
 			return 0;
-	} else if(this->ip < &(ip_header->saddr))
+	} else if((struct in_addr *) this->ip < &(ip_header->saddr))
 		new = &((*new)->rb_right);
 	else
 		new = &((*new)->rb_left);
