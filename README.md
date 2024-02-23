@@ -22,7 +22,7 @@ How to Run the App:
 
 
 Unload the Kernel Module
--Use "sudo rmmod NetworkMonitor" to remove the NetworkMonitor module from the kernel
+- Use "sudo rmmod NetworkMonitor" to remove the NetworkMonitor module from the kernel
 
 
 Important Notes
